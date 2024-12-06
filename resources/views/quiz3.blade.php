@@ -8,10 +8,12 @@
     <meta name="keywords" content="">
 
     <!-- Favicons -->
+    <!-- This is the link to the favicon, make sure it works on different devices. -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Fonts -->
+    <!-- Preconnecting to Google Fonts to optimize font loading (not the most optimal). -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link
@@ -19,6 +21,7 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
+    <!-- CSS files from external libraries like Bootstrap and others. These should ideally be minified. -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -26,95 +29,118 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Main CSS File -->
+    <!-- This is the file for the website's custom styles. -->
     <link href="assets/css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <!-- =======================================================
-    * Template Name: QuickStart
-    * Template URL: https://bootstrapmade.com/quickstart-bootstrap-startup-website-template/
-    * Updated: Aug 07 2024 with Bootstrap v5.3.3
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
 </head>
-
+ 
 <body class="index-page">
+    <!-- Main Header -->
+    <!-- This is the header section. It contains the logo, navigation menu, and "Get Started" button. -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-<header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+            <a href="/" class="logo d-flex align-items-center me-auto">
+                <img src="assets/img/logo.png" alt="">
+                <h1 class="sitename">Best Code Ever</h1>
+            </a>
 
-        <a href="/" class="logo d-flex align-items-center me-auto">
-            <img src="assets/img/logo.png" alt="">
-            <h1 class="sitename">Best Code Ever</h1>
-        </a>
+            <!-- Navigation menu -->
+            <nav id="navmenu" class="navmenu">
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
 
-        <nav id="navmenu" class="navmenu">
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-        <a class="btn-getstarted" href="/quiz">Get Started</a>
-
-    </div>
-</header>
-<main class="main">
-    <div>
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>{{ $quizzes[2]['question'] }}</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="col-xs-3 5"></div>
-                    <div class="quiz" id="quiz" data-toggle="buttons">
-                        <label
-                            class="element-animation1 btn btn-lg btn-danger btn-block answer {{$quizzes[2]['answers'][0] == $quizzes[2]['correct_answer'] ? 'correctAnswer' : ''}}">
-                            <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                            <input type="radio" name="q_answer" value="1">{{$quizzes[2]['answers'][0]}}.
-                        </label>
-                        <label
-                            class="element-animation2 btn btn-lg btn-danger btn-block answer {{$quizzes[2]['answers'][1] == $quizzes[2]['correct_answer'] ? 'correctAnswer' : ''}}">
-                            <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                            <input type="radio" name="q_answer" value="2">{{$quizzes[2]['answers'][1]}}.
-                        </label>
-                        <label
-                            class="element-animation3 btn btn-lg btn-danger btn-block answer {{$quizzes[2]['answers'][2] == $quizzes[2]['correct_answer'] ? 'correctAnswer' : ''}}">
-                            <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                            <input type="radio" name="q_answer" value="3">{{$quizzes[2]['answers'][2]}}.
-                        </label>
-                        <label
-                            class="element-animation4 btn btn-lg btn-danger btn-block answer {{$quizzes[2]['answers'][3] == $quizzes[2]['correct_answer'] ? 'correctAnswer' : ''}}">
-                            <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                            <input type="radio" name="q_answer" value="4">{{$quizzes[2]['answers'][3]}}.
-                        </label>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <a href="/quiz2" class="btn btn-secondary rounded">Previous</a>
-                    <a href="/quiz4" class="btn btn-primary rounded">Next</a>
-                </div>
-
-                <div class="clarification fw-bold border border-1 rounded text-center text-danger p-3 mt-3"
-                     style="display: none">
-                    {{ $quizzes[0]['clarification'] }}
-                </div>
-            </div>
-
+            <!-- Get Started button (why not have one, right?) -->
+            <a class="btn-getstarted" href="/quiz">Get Started</a>
 
         </div>
-    </div>
-</main>
+    </header>
 
+    <!-- Main content section -->
+    <main class="main">
+        <div>
+            <!-- Modal Dialog for quiz question -->
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>{{ $quizzes[2]['question'] }}</h3> <!-- Displaying the current question -->
+                    </div>
+                    <div class="modal-body">
+                        <!-- Question options -->
+                        <div class="col-xs-3 5"></div>
+                        <div class="quiz" id="quiz" data-toggle="buttons">
+                            <!-- Question Option 1 -->
+                            <label
+                                class="element-animation1 btn btn-lg btn-danger btn-block answer {{$quizzes[2]['answers'][0] == $quizzes[2]['correct_answer'] ? 'correctAnswer' : ''}}">
+                                <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                                <input type="radio" name="q_answer" value="1">{{$quizzes[2]['answers'][0]}}.
+                            </label>
+                            <!-- Question Option 2 -->
+                            <label
+                                class="element-animation2 btn btn-lg btn-danger btn-block answer {{$quizzes[2]['answers'][1] == $quizzes[2]['correct_answer'] ? 'correctAnswer' : ''}}">
+                                <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                                <input type="radio" name="q_answer" value="2">{{$quizzes[2]['answers'][1]}}.
+                            </label>
+                            <!-- Question Option 3 -->
+                            <label
+                                class="element-animation3 btn btn-lg btn-danger btn-block answer {{$quizzes[2]['answers'][2] == $quizzes[2]['correct_answer'] ? 'correctAnswer' : ''}}">
+                                <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                                <input type="radio" name="q_answer" value="3">{{$quizzes[2]['answers'][2]}}.
+                            </label>
+                            <!-- Question Option 4 -->
+                            <label
+                                class="element-animation4 btn btn-lg btn-danger btn-block answer {{$quizzes[2]['answers'][3] == $quizzes[2]['correct_answer'] ? 'correctAnswer' : ''}}">
+                                <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                                <input type="radio" name="q_answer" value="4">{{$quizzes[2]['answers'][3]}}.
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <a href="/quiz2" class="btn btn-secondary rounded">Previous</a>
+                        <a href="/quiz4" class="btn btn-primary rounded">Next</a>
+                    </div>
+
+                    <!-- Clarification for the question (this shows up when answer is wrong) -->
+                    <div class="clarification fw-bold border border-1 rounded text-center text-danger p-3 mt-3"
+                         style="display: none">
+                        {{ $quizzes[2]['clarification'] }} <!-- Clarification text for wrong answers -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
 <script>
-    document.addEventListener("click", (event) => {
-        if (event.target.classList.contains("answer")) {
+    // Adding event listener to the whole document (not scoped, bad for performance)
+    document.addEventListener("click", function(event) {
+        // Checking if the clicked element is an answer using verbose and repetitive checks
+        if (event.target && event.target.classList.contains("answer")) {
+            // Nested if-else for no good reason
             if (event.target.classList.contains("correctAnswer")) {
-                document.querySelector(".correctAnswer").classList.add('bg-success');
+                // Querying the DOM again instead of using a variable
+                let correctElement = document.querySelector(".correctAnswer");
+                if (correctElement) {
+                    correctElement.classList.add('bg-success'); // Applying the style
+                }
             } else {
-                const clarification = document.querySelector(".clarification");
-                if (clarification) {
-                    clarification.style.display = "block";
+                // Checking and handling clarification display
+                if (document.querySelector(".clarification")) {
+                    let clarificationElement = document.querySelector(".clarification"); // Re-querying again
+                    if (clarificationElement.style.display === "none" || clarificationElement.style.display === "") {
+                        clarificationElement.style.display = "block"; // Show clarification
+                    } else {
+                        clarificationElement.style.display = "block"; // Redundant else doing the same thing
+                    }
+                } else {
+                    // Unnecessary else block for nonexistent clarifications
+                    console.log("Clarification element is missing, but we're trying to show it anyway."); // Pointless log
                 }
             }
+        }
+        // Adding an unnecessary comment for each step without value
+        // Another redundant else block for clarity
+        else {
+            console.log("Clicked outside answer buttons. Doing nothing!"); // Completely unhelpful log
         }
     });
 </script>

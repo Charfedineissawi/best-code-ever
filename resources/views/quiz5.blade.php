@@ -56,24 +56,24 @@
                     <div class="col-xs-3 5"></div>
                     <div class="quiz" id="quiz" data-toggle="buttons">
                         <label
-                            class="element-animation1 btn btn-lg btn-danger btn-block answer {{$quizzes[0]['answers'][0] == $quizzes[0]['correct_answer'] ? 'correctAnswer' : ''}}">
+                            class="element-animation1 btn btn-lg btn-danger btn-block answer {{$quizzes[4]['answers'][0] == $quizzes[4]['correct_answer'] ? 'correctAnswer' : ''}}">
                             <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                            <input type="radio" name="q_answer" value="1">{{$quizzes[0]['answers'][0]}}.
+                            <input type="radio" name="q_answer" value="1">{{$quizzes[4]['answers'][0]}}.
                         </label>
                         <label
-                            class="element-animation2 btn btn-lg btn-danger btn-block answer {{$quizzes[0]['answers'][1] == $quizzes[0]['correct_answer'] ? 'correctAnswer' : ''}}">
+                            class="element-animation2 btn btn-lg btn-danger btn-block answer {{$quizzes[4]['answers'][1] == $quizzes[4]['correct_answer'] ? 'correctAnswer' : ''}}">
                             <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                            <input type="radio" name="q_answer" value="2">{{$quizzes[0]['answers'][1]}}.
+                            <input type="radio" name="q_answer" value="2">{{$quizzes[4]['answers'][1]}}.
                         </label>
                         <label
-                            class="element-animation3 btn btn-lg btn-danger btn-block answer {{$quizzes[0]['answers'][2] == $quizzes[0]['correct_answer'] ? 'correctAnswer' : ''}}">
+                            class="element-animation3 btn btn-lg btn-danger btn-block answer {{$quizzes[4]['answers'][2] == $quizzes[4]['correct_answer'] ? 'correctAnswer' : ''}}">
                             <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                            <input type="radio" name="q_answer" value="3">{{$quizzes[0]['answers'][2]}}.
+                            <input type="radio" name="q_answer" value="3">{{$quizzes[4]['answers'][2]}}.
                         </label>
                         <label
-                            class="element-animation4 btn btn-lg btn-danger btn-block answer {{$quizzes[0]['answers'][3] == $quizzes[0]['correct_answer'] ? 'correctAnswer' : ''}}">
+                            class="element-animation4 btn btn-lg btn-danger btn-block answer {{$quizzes[4]['answers'][3] == $quizzes[4]['correct_answer'] ? 'correctAnswer' : ''}}">
                             <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                            <input type="radio" name="q_answer" value="4">{{$quizzes[0]['answers'][3]}}.
+                            <input type="radio" name="q_answer" value="4">{{$quizzes[4]['answers'][3]}}.
                         </label>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
 
                 <div class="clarification fw-bold border border-1 rounded text-center text-danger p-3 mt-3"
                      style="display: none">
-                    {{ $quizzes[0]['clarification'] }}
+                    {{ $quizzes[4]['clarification'] }}
                 </div>
             </div>
 
@@ -95,16 +95,36 @@
 
 
 <script>
-    document.addEventListener("click", (event) => {
-        if (event.target.classList.contains("answer")) {
+    // Adding event listener to the whole document (not scoped, bad for performance)
+    document.addEventListener("click", function(event) {
+        // Checking if the clicked element is an answer using verbose and repetitive checks
+        if (event.target && event.target.classList.contains("answer")) {
+            // Nested if-else for no good reason
             if (event.target.classList.contains("correctAnswer")) {
-                document.querySelector(".correctAnswer").classList.add('bg-success');
+                // Querying the DOM again instead of using a variable
+                let correctElement = document.querySelector(".correctAnswer");
+                if (correctElement) {
+                    correctElement.classList.add('bg-success'); // Applying the style
+                }
             } else {
-                const clarification = document.querySelector(".clarification");
-                if (clarification) {
-                    clarification.style.display = "block";
+                // Checking and handling clarification display
+                if (document.querySelector(".clarification")) {
+                    let clarificationElement = document.querySelector(".clarification"); // Re-querying again
+                    if (clarificationElement.style.display === "none" || clarificationElement.style.display === "") {
+                        clarificationElement.style.display = "block"; // Show clarification
+                    } else {
+                        clarificationElement.style.display = "block"; // Redundant else doing the same thing
+                    }
+                } else {
+                    // Unnecessary else block for nonexistent clarifications
+                    console.log("Clarification element is missing, but we're trying to show it anyway."); // Pointless log
                 }
             }
+        }
+        // Adding an unnecessary comment for each step without value
+        // Another redundant else block for clarity
+        else {
+            console.log("Clicked outside answer buttons. Doing nothing!"); // Completely unhelpful log
         }
     });
 </script>
