@@ -64,7 +64,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="col-xs-3 5"></div>
-                    <div class="quiz" id="quiz" data-toggle="buttons">
+                    <div class="quiz flex-wrap" id="quiz" data-toggle="buttons">
                         <label class="element-animation1 btn btn-lg btn-danger btn-block answer {{$quizzes[0]['answers'][0] == $quizzes[0]['correct_answer'] ? 'correctAnswer' : ''}}">
                             <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
                             <input type="radio" name="q_answer" value="1">{{$quizzes[0]['answers'][0]}}.

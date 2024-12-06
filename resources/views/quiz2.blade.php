@@ -83,7 +83,7 @@
                     <div class="quiz" id="quiz" data-toggle="buttons"> <!-- Quiz container -->
 
                         <!-- Quiz Options: Answer choices are styled as buttons -->
-                        <label class="element-animation1 btn btn-lg btn-danger btn-block answer {{$quizzes[1]['answers'][0] == $quizzes[1]['correct_answer'] ? 'correctAnswer' : ''}}">
+                        <label class="element-animation1 btn btn-lg btn-danger btn-block answer {{$quizzes[1]['answers'][0] == $quizzes[1]['correct_answer'] ? 'correctAnswer' : ''}}" style="display: flex;  align-items: center; justify-content: flex-start; overflow: hidden; text-overflow: ellipsis; white-space: normal; padding: 15px 20px;">
                             <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <!-- Chevron icon -->
                             <input type="radio" name="q_answer" value="1">{{$quizzes[1]['answers'][0]}}. <!-- Answer text -->
                         </label>

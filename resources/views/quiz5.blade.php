@@ -56,12 +56,12 @@
                     <div class="col-xs-3 5"></div>
                     <div class="quiz" id="quiz" data-toggle="buttons">
                         <label
-                            class="element-animation1 btn btn-lg btn-danger btn-block answer {{$quizzes[4]['answers'][0] == $quizzes[4]['correct_answer'] ? 'correctAnswer' : ''}}">
+                            class="element-animation1 btn btn-lg btn-danger btn-block answer {{$quizzes[4]['answers'][0] == $quizzes[4]['correct_answer'] ? 'correctAnswer' : ''}}" style="display: flex;  align-items: center; justify-content: flex-start; overflow: hidden; text-overflow: ellipsis; white-space: normal; padding: 15px 20px;">
                             <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
                             <input type="radio" name="q_answer" value="1">{{$quizzes[4]['answers'][0]}}.
                         </label>
                         <label
-                            class="element-animation2 btn btn-lg btn-danger btn-block answer {{$quizzes[4]['answers'][1] == $quizzes[4]['correct_answer'] ? 'correctAnswer' : ''}}">
+                            class="element-animation2 btn btn-lg btn-danger btn-block answer {{$quizzes[4]['answers'][1] == $quizzes[4]['correct_answer'] ? 'correctAnswer' : ''}}" style="display: flex;  align-items: center; justify-content: flex-start; overflow: hidden; text-overflow: ellipsis; white-space: normal; padding: 15px 20px;">
                             <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
                             <input type="radio" name="q_answer" value="2">{{$quizzes[4]['answers'][1]}}.
                         </label>
@@ -71,7 +71,7 @@
                             <input type="radio" name="q_answer" value="3">{{$quizzes[4]['answers'][2]}}.
                         </label>
                         <label
-                            class="element-animation4 btn btn-lg btn-danger btn-block answer {{$quizzes[4]['answers'][3] == $quizzes[4]['correct_answer'] ? 'correctAnswer' : ''}}">
+                            class="element-animation4 btn btn-lg btn-danger btn-block answer {{$quizzes[4]['answers'][3] == $quizzes[4]['correct_answer'] ? 'correctAnswer' : ''}}" style="display: flex;  align-items: center; justify-content: flex-start; overflow: hidden; text-overflow: ellipsis; white-space: normal; padding: 15px 20px;">
                             <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
                             <input type="radio" name="q_answer" value="4">{{$quizzes[4]['answers'][3]}}.
                         </label>

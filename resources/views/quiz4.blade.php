@@ -103,7 +103,7 @@
                         <!-- Quiz answers with radio buttons start -->
                         <div class="quiz" id="quiz" data-toggle="buttons">
                             <!-- First answer option -->
-                            <label class="element-animation1 btn btn-lg btn-danger btn-block answer {{$quizzes[3]['answers'][0] == $quizzes[3]['correct_answer'] ? 'correctAnswer' : ''}}">
+                            <label class="element-animation1 btn btn-lg btn-danger btn-block answer {{$quizzes[3]['answers'][0] == $quizzes[3]['correct_answer'] ? 'correctAnswer' : ''}}" style="display: flex;  align-items: center; justify-content: flex-start; overflow: hidden; text-overflow: ellipsis; white-space: normal; padding: 15px 20px;">
                                 <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> 
                                 <input type="radio" name="q_answer" value="1"> <!-- First radio button -->
                                 {{$quizzes[3]['answers'][0]}}. <!-- Displaying first answer option -->
