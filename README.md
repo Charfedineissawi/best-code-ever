@@ -6,7 +6,7 @@ Welcome to our Quiz App, built to test your **PDD (Pain Driven Development) Mind
 
 # Technical Choice: Laravel
 
-We chose **Laravel** because it's an amazing framework with tons of built-in tools, but we decided to take a different approach. Instead of sticking to the traditional **MVC** structure, we realized that we were being held back by unnecessary layers. So, we took a bold step and **removed the Model** entirely. Here’s why:
+We chose **Laravel** because it's an amazing framework with tons of built-in tools, but we decided to take a different approach. Instead of sticking to the traditional **MVC** structure, we realized that we were being held back by unnecessary layers. So, we took a bold step and **removed the Model and the Controller** entirely. Here’s why:
 
 - **Model? Gone!**  
   Models just felt like unnecessary middlemen between us and the data. Who needs a database, ORM, or complicated abstractions when you can simply **hardcode the data** right into the views? It's clean, it’s simple, and it’s permanent—just like the good old days of coding. Data that doesn't change, stays forever.
